@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teamleader Data</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="header">
+    <div class="header-profile">
+        <button type="button" class="btn btn-light">
+            Back
+        </button>
+    </div>
+  </div>
+  <h1 class="text-center mb-4" style="background-color: rgb(155, 153, 151);">Teamleaders Data</h1>
+
+  <!-- Employees Table -->
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead >
+        <tr>
+          <th>Sr.No</th>
+          <th>Name</th>
+          <th>Emp Id</th>
+          <!-- <th>Gender</th> -->
+          <th>Email address</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <!-- <th>Salary</th>
+          <th>Performance</th>
+          <th>Date of Join</th>
+          <th>Profile image</th> -->
+          <th>View Details</th>
+          <!-- <th>Edit</th>
+          <th>Delete</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for y in teamleaders %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{y.name}}</td>
+            <td>{{y.employeeid}}</td>
+            <!-- <td>{{y.gender}}</td> -->
+            <td>{{y.email}}</td>
+            <td>{{y.mobile}}</td>
+            <td>{{y.address}}</td>
+            <!-- <td>{{y.salary}}</td>
+            <td>{{y.performance}}</td>
+            <td>{{y.doj}}</td>
+            <td>{{y.empimage}}</td> -->
+            <td><a href="/tl_viewdetail/{{y.id}}">View Details</a></td>
+            <!-- <td><a href="/edit/{{y.id}}">Edit</a></td>
+            <td><a href="/delete/{{y.id}}">Delete</a></td> -->
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Graph -->
+  <canvas id="employeeGraph" width="400" height="200" class="mt-5"></canvas>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  // buttom back 
+         let btnBack = document.querySelector('button');
+            btnBack.addEventListener('click', () => {
+                window.history.back();
+            });
+</script>
+
+</body>
+</html>

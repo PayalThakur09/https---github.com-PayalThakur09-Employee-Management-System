@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/stylenew.css' %}" />
+    <link rel="stylesheet" href="static/https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+        <div class="container">
+            <div class="header">
+                <div class="header-profile">
+                    <button type="button" class="btn btn-light">
+                       Back
+                    </button>
+                </div>
+            </div>
+            <div class="row mt-5 shadow" style="background-color:  rgb(233, 230, 227); border-radius: 20px; padding: 10px; margin: auto;">
+                <div class="col-md-6 ">
+                    <div class="col-md-8 mt-2" style="margin: auto;">
+                        <img src="" class="card-img-top" alt="Employee Photo">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-8 mt-2">
+                        <div class="card-body">
+                            <h3 class="card-title">Name</h3><br>
+                            <p class="card-text"><b>Employee ID:</b> </p>
+                            <p class="card-text"><b>Gender:</b> </p>
+                            <p class="card-text"><b>Email:</b> </p>
+                            <p class="card-text"><b>Phone:</b> </p>
+                            <p class="card-text"><b>Address:</b> </p>
+                            <p class="card-text"><b>Salary:</b> </p>
+                            <p class="card-text"><b>Performance:</b> </p>
+                            <p class="card-text"><b>Date of join:</b> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <span>&copy; 2024 Vibgyor Advisors Pvt. Ltd. | <a href="#">www.vibgyoradvisors.com</a></span>
+            </div>
+        </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+        let btnBack = document.querySelector('button');
+            btnBack.addEventListener('click', () => {
+                window.history.back();
+            });
+</script>
+</body>
+</html>

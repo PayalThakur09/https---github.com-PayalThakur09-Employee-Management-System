@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Create Profile
+                </div>
+                <div class="card-body">
+                    <form id="employeeForm" method="POST" action="/addemployee">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" name="uname" class="form-control" id="name" placeholder="Enter name" required>
+
+                            <label for="email">Employee Id:</label>
+                            <input type="number" name="uemployeeid" class="form-control" id="eid" placeholder="EID" required>
+
+                            <label for="name">Gender:</label>
+                            <input type="name" name="uposition" class="form-control" id="email" placeholder="Enter Position" required>
+                    
+                            <label for="email">Email address:</label>
+                            <input type="email" name="uemail" class="form-control" id="email" placeholder="Enter email" required>
+
+                            <label for="email">Mobile:</label>
+                            <input type="mobile" name="umobile" class="form-control" id="mobile" placeholder="Enter phone" required>
+
+                            <label for="email">Address:</label>
+                            <input type="name" name="uaddress" class="form-control" id="address" placeholder="Enter Address" required>
+
+                            <label for="email">Salary:</label>
+                            <input type="number" name="usalary" class="form-control" id="salary" placeholder="Enter salary" required>
+
+                            <label for="email">Performance:</label>
+                            <input type="name" name="uperformance" class="form-control" id="performance" placeholder="Enter Performance" required>
+
+                            <label for="email">Date of Join:</label>
+                            <input type="name" name="udoj" class="form-control" id="doj" placeholder="Enter Date" required>
+
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-light">
+                            <a href="" class="anchor">Back</a>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <script>
+    $(document).ready(function () {
+        // Function to handle form submission
+        $('#employeeForm').submit(function (e) {
+            e.preventDefault(); // Prevent form from submitting normally
+
+            // Get form values
+            var name = $('#name').val();
+            var email = $('#email').val();
+
+            // Validate form
+            if (name.trim() === '' || email.trim() === '') {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Display employee profile
+            $('#employeeProfile').html(`
+                <h2>Name: ${name}</h2>
+                <p>Email: ${email}</p>
+            `);
+        });
+    }); -->
+<!-- </script> -->
+
+</body>
+</html>

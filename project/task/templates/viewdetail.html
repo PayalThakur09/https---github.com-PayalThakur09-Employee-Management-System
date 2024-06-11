@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/stylenew.css' %}" />
+    <link rel="stylesheet" href="static/https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+        <div class="container">
+            <div class="header">
+                <div class="header-profile">
+                    <button class="btn btn-light">
+                        Back
+                    </button>
+                </div>
+            </div>
+            {% for x in employees %}
+            <div class="row mt-5 shadow" style="background-color:  rgb(233, 230, 227); border-radius: 20px; padding: 10px; margin: auto;">
+                <div class="col-md-6 ">
+                    <div class="col-md-8 mt-2" style="margin: auto;">
+                        <img src="{{x.empimage.url}}" class="card-img-top" alt="Employee Photo">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-8 mt-2">
+                        <div class="card-body">
+                            <h3 class="card-title">{{x.name}}</h3><br>
+                            <p class="card-text"><b>Employee ID:</b> {{x.employeeid}}</p>
+                            <p class="card-text"><b>Gender:</b> {{x.gender}}</p>
+                            <p class="card-text"><b>Email:</b> {{x.email}}</p>
+                            <p class="card-text"><b>Phone:</b> {{x.mobile}}</p>
+                            <p class="card-text"><b>Address:</b> {{x.address}}</p>
+                            <p class="card-text"><b>Salary:</b> {{x.salary}}</p>
+                            <p class="card-text"><b>Performance:</b> {{x.performance}}</p>
+                            <p class="card-text"><b>Date of join:</b> {{x.doj}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-md-6 shadow mt-5" style="background-color:  rgb(155, 153, 151); border-radius: 20px; padding: 20px; margin: auto;">
+            <div class="performance-section">
+                <h2>Employee Performance</h2>
+                <div class="progress-info mt-4" style="background-color:  rgb(233, 230, 227); border-radius: 20px; padding: 20px;">
+                    <h4>Weekly Performance</h4>
+                    <p><strong>Completed Tasks:</strong> 85</p>
+                    <p><strong>Remaining Tasks:</strong> 15</p>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 83%" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100">83%</div>
+                    </div>
+                </div>
+                <div class="progress-info mt-4" style="background-color:  rgb(233, 230, 227); border-radius: 20px; padding: 20px;">
+                    <h4>Monthly Performance</h4>
+                    <p><strong>Completed Tasks:</strong> 50</p>
+                    <p><strong>Remaining Tasks:</strong> 30</p>
+                    <p><strong>Not Start:</strong> 20</p>
+                    <div id="performance" class="container py-5">
+                    <div class="pie-chart">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-6 mt-5" style="background-color:  rgb(233, 230, 227); border-radius: 20px; padding: 10px; margin: auto;">
+                <div class="card p-4 mb-4">
+                    <h3 class="mb-4">Salary Graph</h3>
+                    <canvas id="salaryGraph" class="salary-graph"></canvas>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <span>&copy; 2024 Vibgyor Advisors Pvt. Ltd. | <a href="#">www.vibgyoradvisors.com</a></span>
+            </div>
+        </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script>
+    // Performance Chart
+    var ctx = document.getElementById('performanceChart').getContext('2d');
+       var performanceChart = new Chart(ctx, {
+           type: 'pie',
+           data: {
+               labels: ['Completed', 'In Progress', 'Not Started'],
+               datasets: [{
+                   label: 'Performance',
+                   data: [50, 30, 20],
+                   backgroundColor: ['#28a745', '#ffc107', '#dc3545'],
+               }]
+           },
+           options: {}
+       });
+    
+    // Salary Graph
+    var ctx = document.getElementById('salaryGraph').getContext('2d');
+        var salaryGraph = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+                datasets: [{
+                    label: 'Salary',
+                    data: [23000, 24500, 23600, 24800],
+                    backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                    borderColor: 'rgba(52, 152, 219, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(52, 152, 219, 1)',
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // buttom back 
+        let btnBack = document.querySelector('button');
+            btnBack.addEventListener('click', () => {
+                window.history.back();
+            });
+
+</script>
+
+</body>
+</html>

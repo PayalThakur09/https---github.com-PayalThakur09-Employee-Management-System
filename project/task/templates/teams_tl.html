@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/stylenew.css'  %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="header-profile">
+            <button type="button" class="btn btn-light">
+                <a href="/teamleader" class="anchor">Back</a>
+            </button>
+        </div>
+    </div>
+    <h1 class="text-center mb-4">Teams Dashboard</h1>
+    <div class="row" >
+        <div class="col-md-4">
+            <div class="employee-card shadow" style="background-color: rgb(233, 230, 227); border-radius: 20px; margin: auto;">
+                <h3>Team A</h3>
+                <p>Team Member: <span class="attendance-status">6</span></p>
+                <p>Work Status: <span class="work-status">On Track</span></p>
+                <p>Performance: Excellent</p>
+                <button class="btn btn-secondary view-details-btn" data-toggle="modal" data-target="#employeeModal1"><a href="/team" >Veiw Details </a></button>
+            </div>
+        </div> 
+        <div class="col-md-4">
+            <div class="employee-card shadow" style="background-color: rgb(233, 230, 227); border-radius: 20px; margin: auto;">
+                <h3>Team B</h3>
+                <p>Team Member: <span class="attendance-status">6</span></p>
+                <p>Work Status: <span class="work-status">Complete</span></p>
+                <p>Performance: Excellent</p>
+                <button class="btn btn-secondary view-details-btn" data-toggle="modal" data-target="#employeeModal1"><a href="/team">Veiw Details </a></button>
+            </div>
+        </div> 
+        
+    </div>
+</div>
+ <!-- Footer -->
+ <footer class="footer">
+    <div class="container">
+        <span>&copy; 2024 Vibgyor Advisors Pvt. Ltd. | <a href="#">www.vibgyoradvisors.com</a></span>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manager Data</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="header">
+    <div class="header-profile">
+        <button type="button" class="btn btn-light">
+           Back
+        </button>
+    </div>
+  </div>
+  <h1 class="text-center mb-4" style="background-color: rgb(155, 153, 151);">Managers Data</h1>
+
+  <!-- Employees Table -->
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead >
+        <tr>
+          <th>Sr.No</th>
+          <th>Name</th>
+          <th>Emp Id</th>
+          <!-- <th>Gender</th> -->
+          <th>Email address</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <!-- <th>Salary</th>
+          <th>Performance</th>
+          <th>Date of Join</th>
+          <th>Profile image</th> -->
+          <th>View Details</th>
+          <!-- <th>Edit</th>
+          <th>Delete</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for z in managers %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{z.name}}</td>
+            <td>{{z.employeeid}}</td>
+            <!-- <td>{{z.gender}}</td> -->
+            <td>{{z.email}}</td>
+            <td>{{z.mobile}}</td>
+            <td>{{z.address}}</td>
+            <!-- <td>{{z.salary}}</td>
+            <td>{{z.performance}}</td>
+            <td>{{z.doj}}</td>
+            <td>{{z.empimage}}</td> -->
+            <td><a href="/m_viewdetail/{{z.id}}">View Details</a></td>
+            <!-- <td><a href="/edit/{{x.id}}">Edit</a></td>
+            <td><a href="/delete/{{x.id}}">Delete</a></td> -->
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Graph -->
+  <canvas id="employeeGraph" width="400" height="200" class="mt-5"></canvas>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  // buttom back 
+         let btnBack = document.querySelector('button');
+            btnBack.addEventListener('click', () => {
+                window.history.back();
+            });
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Schedule</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/stylenew.css' %}" />
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="header-profile">
+            <button type="button" class="btn btn-light">
+                Back
+            </button>
+        </div>
+    </div>
+    <div class="row" style="background-color:  rgb(233, 230, 227); border-radius: 20px;">
+        <div class="col-md-6">
+            <div class="meeting-section" >
+                <h3>Scheduled Meetings</h3>
+                <div id="scheduled-meetings">
+                    <!-- Scheduled meetings will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="meeting-section">
+                <h3>Upcoming Meetings</h3>
+                <div id="upcoming-meetings">
+                    <!-- Upcoming meetings will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <span>&copy; 2024 Vibgyor Advisors Pvt. Ltd. | <a href="#">www.vibgyoradvisors.com</a></span>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="{% static 'js/meeting.js' %}"></script>
+<script>
+    // buttom back 
+           let btnBack = document.querySelector('button');
+              btnBack.addEventListener('click', () => {
+                  window.history.back();
+              });
+  </script>
+</body>
+</html>

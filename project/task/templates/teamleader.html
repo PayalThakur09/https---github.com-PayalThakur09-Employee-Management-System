@@ -1,0 +1,110 @@
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Leader Page</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/stylenew.css'  %}" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-2 sidebar">
+                <div class="sidebar-heading">
+                    {{ user.username }}
+                </div>
+                <div class="sidebar-profile">
+                    <img src="{{ user.empimage.url }}" alt="Profile Picture">
+                </div>
+                <div class="sidebar-menu">
+                    <a href="/profile" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Profile</span>
+                    </a>
+                    <a href="/teams_tl" class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Team</span>
+                    </a>
+                    <a href="/project" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-lock fa-fw me-3"></i><span>Projects</span></a>
+                    <a href="/meeting" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-chart-line fa-fw me-3"></i><span>Meetings</span></a>
+                    <a href="/allemployees" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-users fa-fw me-3"></i><span>Team Member</span></a>
+                    
+                    </div>
+            </div>
+    
+            <!-- Page Content -->
+            <div class="col-md-9">
+                <!-- Header -->
+                <div class="header">
+                    <div class="header-profile">
+                        <img src="{{ user.empimage.url }}" alt="Profile Picture">
+                        <span>|</span>
+                        <a href="/logout">Logout</a>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="mb-3">
+                        <h4>Teamleader Dashboard</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 d-flex">
+                            <div class="card flex-fill border-0 illustration">
+                                <div class="card-body p-0 d-flex flex-fill">
+                                    <div class="row g-0 w-100">
+                                        <div class="col-6">
+                                            <div class="p-3 m-1">
+                                                <h5>Welcome Back, {{ user.username }}</h5><br>
+                                                <p class="mb-0"> Vibgyor Advisor</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 align-self-end text-end">
+                                            <img src="" class="img-fluid illustration-img"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 d-flex">
+                            <div class="card flex-fill border-0">
+                                
+                                    <div class="p-4 ">
+                                        <h4 class="mb-4">Time & Date</h4>
+                                        <div class="live-clock" id="liveClock"></div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <span>&copy; 2024 Vibgyor Advisors Pvt. Ltd. | <a href="#">www.vibgyoradvisors.com</a></span>
+        </div>
+    </footer>
+        
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script>
+        // Live Time & Date
+        function updateTime() {
+            var now = new Date();
+            var time = now.toLocaleTimeString();
+            var date = now.toDateString();
+            document.getElementById('liveClock').innerHTML = time + '<br>' + date;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
